@@ -3,33 +3,24 @@
 A JavaFX desktop application that manages patient registration records in a MySQL
 database using JDBC. It supports Create, Read, Update, Delete and Search operations.
 
-> Educational exercise only. All patient data is fictional.
+
 
 ## Project structure
 
 ```
-pom.xml                              Maven build (Java 25, JavaFX 25.0.5, MySQL Connector/J 9.7.0)
-database.sql                         Creates hospital_db, the patients table and sample rows
+pom.xml                              
+database.sql                         
 src/main/java/module-info.java
 src/main/java/application/
-    Main.java                        JavaFX window, button actions, validation, status messages
-    PatientDAO.java                  All JDBC code (INSERT, SELECT, UPDATE, DELETE, search)
-    Patient.java                     Model class for one row of the patients table
+    Main.java                        
+    PatientDAO.java                 
+    Patient.java                     
 src/main/resources/application/
-    application.css                  Styles for the window
-screenshots/                         Screenshots of add, search, update and delete
+    application.css                  
+screenshots/                         
 ```
 
-## How to run
 
-1. Run `database.sql` in MySQL (MySQL Workbench: *File → Open SQL Script → Execute*,
-   or from a terminal: `mysql -u root -p < database.sql`).
-2. Open `src/main/java/application/PatientDAO.java` and set `DB_USER` and `DB_PASSWORD`
-   to your MySQL username and password.
-3. Start the application:
-   - Terminal: `mvn clean javafx:run`
-   - Eclipse: *File → Import → Maven → Existing Maven Projects*, select this folder,
-     then right-click `Main.java` → *Run As → Java Application*.
 
 ## Screen layout
 
@@ -85,24 +76,4 @@ passed as a parameter, so it matches any part of the name or phone number.
 | Phone | Required, digits/spaces/`+ - ( ) .` only, at least 7 digits |
 | Admission date | Required, cannot be in the future (future days are disabled in the calendar) |
 
-## Testing checklist
 
-| Test | Expected result |
-|---|---|
-| Launch the application | Form and TableView are shown, existing records are loaded |
-| Click Add Patient with an empty form | "Please complete all fields." |
-| Enter an age of `abc` or `200` | Age error message, nothing is saved |
-| Add a valid patient | Row is inserted in MySQL and appears in the table |
-| Click Show All | All stored records are shown |
-| Click a row in the table | The form is filled with that patient |
-| Change phone or diagnosis and click Update | The record is changed in MySQL |
-| Click Delete | Confirmation dialog; OK removes the record |
-| Search by part of a name or phone | Only matching records are shown |
-| Click Clear | Form and table selection are reset |
-| Stop MySQL and click Show All | "Database error: ..." message, application keeps running |
-
-Finally, `SELECT * FROM patients;` in MySQL confirms the database contents.
-
-## Optional extension completed
-
-- Separate `PatientDAO` class to isolate the database code from the user interface.
