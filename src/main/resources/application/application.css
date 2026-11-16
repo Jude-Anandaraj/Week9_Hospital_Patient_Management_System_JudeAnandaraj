@@ -1,0 +1,50 @@
+/* Hospital Management System styles */
+
+.root {
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f7fb;
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f3b5b;
+}
+
+.subtitle {
+    -fx-text-fill: #5a6573;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f3b5b;
+}
+
+.panel {
+    -fx-background-color: white;
+    -fx-border-color: #d0d7e2;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.form-label {
+    -fx-font-weight: bold;
+}
+
+.read-only-field {
+    -fx-control-inner-background: #eef1f5;
+}
+
+.status-success {
+    -fx-text-fill: #167545;
+}
+
+.status-error {
+    -fx-text-fill: #b00020;
+}
+
+.footer {
+    -fx-text-fill: #7a8594;
+    -fx-font-size: 11px;
+}
